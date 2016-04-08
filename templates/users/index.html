@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{% trans "Users" %}{% endblock %}
+
+{% block content_title %}{% trans "User List" %}{% endblock %}
+{% block content_description %}{% endblock %}
+{% block content %}
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">{% trans "User List" %}</h3>
+
+                        <div class="box-tools pull-right">
+                            <a href="{% url 'users:create' %}" class="btn btn-block btn-primary">
+                                <i class="fa fa-plus"></i>{% trans "Create User" %}
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                            <div class="row">
+                                <div class="col-sm-6"></div>
+                                <div class="col-sm-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid"
+                                           aria-describedby="example2_info">
+                                        <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1" aria-sort="ascending">{% trans "User Name" %}</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1">{% trans "Email" %}</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1">{% trans "Active" %}</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1">{% trans "Last Login" %}</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1">{% trans "Create Time" %}</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1">{% trans "Actions" %}</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for user_l in users %}
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1">{{ user_l.username }}</td>
+                                                <td>{{ user_l.email }}</td>
+                                                <td>{{ user_l.is_active }}</td>
+                                                <td>{{ user_l.last_login|date:"Y-m-d H:i:s" }}</td>
+                                                <td>{{ user_l.date_joined|date:"Y-m-d H:i:s" }}</td>
+                                                <td>
+                                                    {% if user.is_superuser %}
+                                                        <div class="btn-group">
+                                                            <a href="{% url 'users:edit' user_l.id %}"
+                                                               class="btn btn-default"
+                                                               role="button">{% trans "Edit" %}</a>
+                                                            <button type="button"
+                                                                    class="btn btn-default dropdown-toggle"
+                                                                    data-toggle="dropdown">
+                                                                <span class="caret"></span>
+                                                                <span class="sr-only">Toggle Dropdown</span>
+                                                            </button>
+                                                            <ul class="dropdown-menu" role="menu">
+                                                                <li>
+                                                                    {% if user_l.is_active %}
+                                                                        <a href="{% url 'users:deactivate' user_l.id %}"
+                                                                           class="btn btn-default"
+                                                                           role="button">{% trans "Deactivate" %}</a>
+                                                                    {% else %}
+                                                                        <a href="{% url 'users:activate' user_l.id %}"
+                                                                           class="btn btn-default"
+                                                                           role="button">{% trans "Activate" %}</a>
+                                                                    {% endif %}
+                                                                </li>
+                                                                <li><a href="{% url 'users:delete' user_l.id %}"
+                                                                       class="btn btn-danger"
+                                                                       role="button">{% trans "Delete" %}</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                        <tfoot>
+
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">
+                                        {% trans "Count: " %}{{ users|length }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    {% if users.object_list and users.paginator.num_pages > 1 %}
+                                        <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                                            <ul class="pagination">
+                                                {% if keys.has_previous %}
+                                                <li class="paginate_button previous" id="example2_previous"><a
+                                                        href="?page={{ users.previous_page_number }}"
+                                                        aria-controls="example2" data-dt-idx="0"
+                                                        tabindex="0">Previous</a>
+                                                </li>
+                                                {% endif %}
+                                                <li class="paginate_button active"><a href="#" aria-controls="example2"
+                                                                                      data-dt-idx="1"
+                                                                                      tabindex="0">{{ users.number }}
+                                                    / {{ users.paginator.num_pages }}</a>
+                                                </li>
+                                                {% if keys.has_next %}
+                                                <li class="paginate_button next" id="example2_next"><a
+                                                        href="?page={{ users.next_page_number }}"
+                                                        aria-controls="example2"
+                                                        data-dt-idx="7"
+                                                        tabindex="0">Next</a>
+                                                </li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+{% endblock %}

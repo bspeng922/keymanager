@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{% trans "Server error" %}{% endblock %}
+
+{% block content %}
+  <div id="right_content">
+    <div id="page_head">
+        <h2>{% trans "Something went wrong!" %}</h2>
+        <p>{% trans "An unexpected error has occurred. Try refreshing the page. If that doesn't help, contact your local administrator." %}</p>
+    </div>
+  </div>
+<div id="links">
+  <p><a href="/">{% trans "Home" %}</a></p>
+</div>
+{% endblock %}

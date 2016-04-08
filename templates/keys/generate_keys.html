@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{% trans "Generate Keys" %}{% endblock %}
+
+{% block content_title %}{% trans "Generate Keys" %}{% endblock %}
+{% block content_description %}{% endblock %}
+{% block content %}
+    <div class="keys-form">
+        <div class="modal-header">
+        </div>
+        <form action="{% url 'keys:generate_keys' %}" method="post" role="form">
+            {% csrf_token %}
+            <div class="modal-body">
+                {% if message %}
+                    <div class="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+                {{ key_form.as_p }}
+            </div>
+            <div class="modal-footer">
+                <input type="submit" value="{% trans "Generate" %}" id="submit-btn">
+            </div>
+        </form>
+    </div>
+    <div class="keys-generated">
+    <hr>
+        <h3>{% trans "Keys" %}</h3>
+        {% if keys %}
+            <ul class="key-list  list-group">
+                {% for key in keys %}
+                    <li class="list-group-item">{{ key }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+{% block customjs %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //disable id_cpu_limit id_srv_limit when id_version value is package
+            var version_param = $("select[name='version']");
+            var version_name = version_param[0].value;
+            var srv_param = $("#id_srv_limit");
+            var cpu_param = $("#id_cpu_limit");
+
+            function update_limit_style(version_name){
+                if (version_name.indexOf("package") >= 0) {
+                        if (!srv_param.attr('disabled')){
+                            srv_param.val(3);
+                            srv_param.attr('disabled', true);
+                        }
+                        if (!cpu_param.attr('readonly')){
+                            cpu_param.val(6);
+                            cpu_param.attr('readonly', true);
+                        }
+                    }else{
+                        if (srv_param.attr('disabled')){
+                            srv_param.attr('disabled', false);
+                        }
+                        if (cpu_param.attr('readonly')){
+                            cpu_param.attr('readonly', false);
+                        }
+                    }
+            }
+            update_limit_style(version_name);
+
+
+            version_param.on("change", function () {
+                version_name = version_param[0].value;
+                update_limit_style(version_name);
+            });
+        });
+    </script>
+{% endblock %}

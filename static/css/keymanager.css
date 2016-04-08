@@ -1,0 +1,137 @@
+.wrap{
+    position:relative;
+    width:100%;
+    min-height:100%;
+}
+
+#content, .header, .navigate, #footer{
+    width: 90%;
+    float: left;
+    margin-left: 5%;
+}
+
+#content{
+    padding-bottom: 40px;
+}
+
+#create-key, #create-user{
+    float: right;
+    margin-top: 20px;
+    margin-right: 5%;
+    margin-bottom: 10px;
+}
+
+th{
+    background-color: #f1f1f1;
+}
+
+tr.empty{
+    text-align: center;
+}
+
+tr.count{
+    font-size: small;
+    background-color: #f1f1f1;
+}
+
+label{
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+#submit-btn{
+    margin-left: 200px;
+}
+
+.key-list{
+    list-style-type: none;
+}
+
+hr{
+    margin: 0px;
+    width: 100%;
+}
+
+.login-form, .keys-form, .user-form, .download-key-form{
+    position: relative;
+    width: 380px;
+    float: left;
+    left: 50%;
+    top: 80px;
+    margin-left: -195px;
+    margin-bottom: 40px;
+}
+
+.keys-form, .user-form, .download-key-form{
+    top: 0px;
+}
+
+.download-key-form{
+    width: 600px;
+    margin-left: -300px;
+}
+
+.brand{
+    width: 100%;
+}
+
+#nav_info{
+    float: left;
+    width: 300px;
+    padding-left: 10px;
+}
+
+#user_info{
+    height: 40px;
+    color: #333333;
+}
+
+.hd_info{
+    width: 400px;
+}
+
+.profile{
+    float: right;
+    margin: 10px 10px 0 0;
+}
+
+.profile > span{
+    margin-right: 20px;
+}
+
+#user_info > span{
+    margin-right: 20px;
+}
+
+.keys-generated{
+    margin-top: 350px;
+}
+
+.nav-pills > li > a{
+    border-radius: 0px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav-pills > li > a:hover{
+    background-color: #DCDCDC;
+}
+
+.selected{
+    background-color: #DCDCDC;
+}
+
+#footer{
+	height: 40px;
+	position: fixed;
+    left:0px;
+	bottom: 0px;
+    background-color: #dddddd;
+    text-align: center;
+    padding: 10px;
+}
+
+input:read-only, select:disabled{
+    background-color: lightgray;
+}

@@ -1,0 +1,393 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-16 15:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: keymanager/settings.py:55 managers/templatetags/branding.py:11
+msgid "Key Manager"
+msgstr "密钥管理"
+
+#: managers/keys/forms.py:14 templates/keys/index.html:21
+msgid "Version"
+msgstr "版本"
+
+#: managers/keys/forms.py:15 managers/versions/forms.py:10
+#: templates/keys/index.html:22 templates/versions/index.html:21
+msgid "Server Limit"
+msgstr "服务器数量"
+
+#: managers/keys/forms.py:16 managers/versions/forms.py:9
+#: templates/keys/index.html:23
+msgid "CPU Limit"
+msgstr "CPU限制"
+
+#: managers/keys/forms.py:17 templates/keys/index.html:24
+msgid "Company"
+msgstr "公司"
+
+#: managers/keys/forms.py:38
+msgid "Count"
+msgstr "数量"
+
+#: managers/keys/views.py:56
+msgid "Unable to list keys"
+msgstr "无法获取密钥列表"
+
+#: managers/keys/views.py:128 managers/keys/views.py:269
+#, fuzzy, python-format
+msgid "Unable to get key(%s)"
+msgstr "无法删除密钥（%s）"
+
+#: managers/keys/views.py:138
+#, fuzzy
+msgid "Successfully update key."
+msgstr "成功更新密钥"
+
+#: managers/users/forms.py:6 managers/users/forms.py:26
+#: templates/users/index.html:17
+msgid "User Name"
+msgstr "用户名"
+
+#: managers/users/forms.py:7 templates/users/index.html:18
+msgid "Email"
+msgstr "邮箱"
+
+#: managers/users/forms.py:11 managers/users/forms.py:16
+#: managers/users/forms.py:28
+msgid "Password"
+msgstr "密码"
+
+#: managers/users/views.py:39
+msgid "Unable to list users."
+msgstr "无法获取用户列表。"
+
+#: managers/users/views.py:70
+#, python-format
+msgid "Success create user \"%s\""
+msgstr "成功创建用户\"%s\""
+
+#: managers/users/views.py:74
+msgid "User already exist, please try another username."
+msgstr "用户已存在，请尝试其他用户名。"
+
+#: managers/users/views.py:77
+#, fuzzy, python-format
+msgid "Unable to create user \"%s\""
+msgstr "无法启用用户（%s）"
+
+#: managers/users/views.py:90
+#, python-format
+msgid "Unable to delete user(%s)"
+msgstr "无法删除用户（%s）"
+
+#: managers/users/views.py:106
+#, python-format
+msgid "Unable to deactivate user(%s)"
+msgstr "无法禁用用户（%s）"
+
+#: managers/users/views.py:122
+#, python-format
+msgid "Unable to activate user(%s)"
+msgstr "无法启用用户（%s）"
+
+#: managers/users/views.py:152
+#, python-format
+msgid "Success updated user \"%s\""
+msgstr "成功更新用户 \"%s\""
+
+#: managers/users/views.py:176
+#, python-format
+msgid "%s logged in successfully."
+msgstr "%s 成功登陆。"
+
+#: managers/users/views.py:180
+msgid "Invalid username or password."
+msgstr "用户名或密码错误。"
+
+#: managers/versions/forms.py:8 templates/versions/index.html:19
+msgid "Name"
+msgstr "名称"
+
+#: managers/versions/views.py:29
+msgid "Unable to list versions"
+msgstr "无法获取版本列表。"
+
+#: managers/versions/views.py:63
+#, python-format
+msgid "Success create version \"%s\""
+msgstr "成功创建版本 \"%s\""
+
+#: managers/versions/views.py:68
+#, fuzzy
+msgid "Unable to create version."
+msgstr "无法创建版本"
+
+#: templates/403.html:5 templates/403.html.py:10
+msgid "Forbidden"
+msgstr "访问禁止"
+
+#: templates/403.html:11
+msgid ""
+"You do not have the required privileges to access this content. If you "
+"believe this message to be in error, please contact your project manager."
+msgstr ""
+"您没有权限来访问这些内容。如果您认为此消息是错误的，请联系您的系统管理员。"
+
+#: templates/404.html:5
+msgid "Page Not Found"
+msgstr "未找到页面"
+
+#: templates/404.html:10
+msgid "The page you were looking for doesn't exist"
+msgstr "您正在访问的页面不存在。"
+
+#: templates/404.html:11
+msgid "You may have mistyped the address or the page may have moved."
+msgstr "您可能没有正确输入地址或页面可能已经移动。"
+
+#: templates/404.html:15 templates/500.html:15
+msgid "Home"
+msgstr "首页"
+
+#: templates/500.html:5
+msgid "Server error"
+msgstr "服务器错误"
+
+#: templates/500.html:10
+msgid "Something went wrong!"
+msgstr "出错了！"
+
+#: templates/500.html:11
+msgid ""
+"An unexpected error has occurred. Try refreshing the page. If that doesn't "
+"help, contact your local administrator."
+msgstr "发生意外的错误，请尝试刷新页面。如果没有解决，请联系您当地的管理员。"
+
+#: templates/_header.html:6 templates/keys/generate_keys.html:29
+#: templates/keys/index.html:5
+msgid "Keys"
+msgstr "密钥"
+
+#: templates/_header.html:8 templates/users/index.html:5
+msgid "Users"
+msgstr "用户"
+
+#: templates/_header.html:15
+msgid "Logged in as"
+msgstr "登录为"
+
+#: templates/_header.html:16
+msgid "Sign Out"
+msgstr "注销"
+
+#: templates/auth/login.html:5 templates/auth/login.html.py:10
+#: templates/auth/login.html:22
+msgid "Login"
+msgstr "登陆"
+
+#: templates/keys/download_key.html:5
+#, fuzzy
+msgid "Download Key"
+msgstr "下载密钥文件"
+
+#: templates/keys/download_key.html:10
+msgid "Download Key File"
+msgstr "下载密钥文件"
+
+#: templates/keys/download_key.html:20
+msgid "Machine Code"
+msgstr "机器码"
+
+#: templates/keys/download_key.html:23 templates/keys/index.html:57
+msgid "Download"
+msgstr "下载"
+
+#: templates/keys/generate_keys.html:5 templates/keys/generate_keys.html:10
+#: templates/keys/index.html:12
+msgid "Generate Keys"
+msgstr "生成密钥"
+
+#: templates/keys/generate_keys.html:23
+msgid "Generate"
+msgstr "生成"
+
+#: templates/keys/index.html:17
+msgid "Key"
+msgstr "密钥"
+
+#: templates/keys/index.html:19
+msgid "Username"
+msgstr "用户名"
+
+#: templates/keys/index.html:25
+msgid "Used"
+msgstr "已使用"
+
+#: templates/keys/index.html:27
+msgid "Deleted"
+msgstr "已删除"
+
+#: templates/keys/index.html:29
+msgid "Activation Time"
+msgstr "激活时间"
+
+#: templates/keys/index.html:30
+msgid "Generation Time"
+msgstr "生成时间"
+
+#: templates/keys/index.html:31 templates/users/index.html:22
+#: templates/versions/index.html:23
+msgid "Actions"
+msgstr "动作"
+
+#: templates/keys/index.html:64
+msgid "Reuse"
+msgstr "重用"
+
+#: templates/keys/index.html:71 templates/users/index.html:52
+#: templates/versions/index.html:36
+msgid "Delete"
+msgstr "删除"
+
+#: templates/keys/index.html:80 templates/users/index.html:61
+#: templates/versions/index.html:41
+msgid "No items to display."
+msgstr "没有条目显示。"
+
+#: templates/keys/index.html:86 templates/users/index.html:67
+#: templates/versions/index.html:47
+msgid "Count: "
+msgstr "总计："
+
+#: templates/keys/index.html:95 templates/users/index.html:76
+#: templates/versions/index.html:56
+msgid "Prev"
+msgstr "上一页"
+
+#: templates/keys/index.html:99 templates/users/index.html:80
+#: templates/versions/index.html:60
+msgid "Next"
+msgstr "下一页"
+
+#: templates/keys/update_key.html:5 templates/keys/update_key.html.py:10
+#, fuzzy
+msgid "Edit Key"
+msgstr "编辑密钥"
+
+#: templates/keys/update_key.html:22 templates/users/index.html:38
+#: templates/users/update_user.html:22
+msgid "Edit"
+msgstr "编辑"
+
+#: templates/users/create_user.html:5
+msgid "Create Users"
+msgstr "创建用户"
+
+#: templates/users/create_user.html:10 templates/users/index.html:12
+msgid "Create User"
+msgstr "创建用户"
+
+#: templates/users/create_user.html:22 templates/versions/create.html:22
+msgid "Create"
+msgstr "创建"
+
+#: templates/users/index.html:19
+msgid "Active"
+msgstr "激活"
+
+#: templates/users/index.html:20
+msgid "Last Login"
+msgstr "最近登陆"
+
+#: templates/users/index.html:21 templates/versions/index.html:22
+msgid "Create Time"
+msgstr "创建时间"
+
+#: templates/users/index.html:46
+msgid "Deactivate"
+msgstr "禁用"
+
+#: templates/users/index.html:48
+msgid "Activate"
+msgstr "启用"
+
+#: templates/users/update_user.html:5 templates/users/update_user.html:10
+msgid "Edit User"
+msgstr "编辑用户"
+
+#: templates/versions/create.html:5 templates/versions/create.html.py:10
+#: templates/versions/index.html:12
+msgid "Create Version"
+msgstr "创建版本"
+
+#: templates/versions/index.html:5
+msgid "Versions"
+msgstr "版本"
+
+#: templates/versions/index.html:20
+msgid "VMemory Limit(GB)"
+msgstr "虚拟内存(GB)"
+
+msgid "Standard"
+msgstr "标准版"
+
+msgid "Enterprise"
+msgstr "企业版"
+
+msgid "Package"
+msgstr "虚拟化包"
+
+msgid "Package Enhanced"
+msgstr "虚拟增强包"
+
+msgid "No Limit"
+msgstr "无限制"
+
+msgid "© 2007-2014 China Communication Technology. All rights reserved."
+msgstr "© 2007-2014 华讯方舟科技有限公司 版权所有"
+
+#~ msgid "Unable to delete key(%s)"
+#~ msgstr "无法删除密钥（%s）"
+
+#, fuzzy
+#~ msgid "key\"%(key)s\" at host\"%(host)s\" : Illegal key"
+#~ msgstr "密钥（%s） - 主机（%s） : 非法密钥"
+
+#, fuzzy
+#~ msgid "key\"%(key)s\" at host\"%(host)s\" : Key has been used."
+#~ msgstr "密钥（%s） - 主机（%s） : 密钥已使用"
+
+#, fuzzy
+#~ msgid ""
+#~ "key\"%(key)s\" at host\"%(host)s\" : Unable to find the corresponding "
+#~ "records from the database."
+#~ msgstr "密钥（%s） - 主机（%s） : 密钥不存在"
+
+#, fuzzy
+#~ msgid "key\"%(key)s\" at host\"%(host)s\" : Unknown error"
+#~ msgstr "密钥（%s） - 主机（%s） : 未知错误"
+
+#~ msgid "Short Key"
+#~ msgstr "编号"
+
+#~ msgid "Unable to delete version(%s)."
+#~ msgstr "无法删除版本（%s）"
+
+#, fuzzy
+#~ msgid "Edit Users"
+#~ msgstr "编辑用户"

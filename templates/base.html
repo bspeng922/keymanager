@@ -1,0 +1,44 @@
+{% load branding i18n %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} - - {% site_branding %}</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    {% block css %}
+        {% include "_stylesheets.html" %}
+    {% endblock %}
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+      <header class="main-header">
+          {% include "_header.html" %}
+      </header>
+      <aside class="main-sidebar">
+          {% include "_sidebar.html" %}
+      </aside>
+      <div class="content-wrapper">
+          <section class="content-header">
+              <h1>
+                  {% block content_title %}{% endblock %}
+                  <small>{% block content_description %}{% endblock %}</small>
+              </h1>
+          </section>
+          <section class="content">
+              {% block content %}{% endblock %}
+          </section>
+      </div>
+      <!-- Main Footer -->
+      <footer class="main-footer">
+          {% include "_footer.html" %}
+      </footer>
+  </div>
+
+  {% block js %}
+      {% include "_scripts.html" %}
+  {% endblock %}
+
+  {% block customjs %}
+  {% endblock %}
+  </body>
+</html>

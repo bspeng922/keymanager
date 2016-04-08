@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{% trans "Download Key" %}{% endblock %}
+
+{% block content_title %}{% trans "Download Key" %}{% endblock %}
+{% block content_description %}{% endblock %}
+{% block content %}
+    <div class="download-key-form">
+        <div class="modal-header">
+        </div>
+        <form action="{% url 'keys:download' key_id %}" method="post">
+            {% csrf_token %}
+            <div class="modal-body">
+                {% if message %}
+                    <div class="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+                <div class="input-group">
+                    <span class="input-group-addon">{% trans "Machine Code" %}:</span>
+                    <input type="text" class="form-control" name="hd_info"/>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value="{% trans 'Download' %}">
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

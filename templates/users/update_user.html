@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{% trans "Edit User" %}{% endblock %}
+
+{% block content_title %}{% trans "Edit User" %}{% endblock %}
+{% block content_description %}{% endblock %}
+{% block content %}
+    <div class="user-form">
+        <div class="modal-header">
+        </div>
+        <form action="{% url 'users:edit' user_id %}" method="post">
+            {% csrf_token %}
+            <div class="modal-body">
+                {% if message %}
+                    <div class="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+                {{ user_form.as_p }}</div>
+            <div class="modal-footer">
+                <input type="submit" value="{% trans 'Edit' %}"></div>
+        </form>
+    </div>
+{% endblock %}

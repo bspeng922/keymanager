@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{% trans "Page Not Found" %}{% endblock %}
+
+{% block content %}
+  <div id="right_content">
+    <div id="page_head">
+      <h2 id="page_heading">{% trans "The page you were looking for doesn't exist" %}</h2>
+      <p id="page_description">{% trans "You may have mistyped the address or the page may have moved." %}</p>
+    </div>
+  </div>
+<div id="links">
+  <p><a href="/">{% trans "Home" %}</a></p>
+</div>
+{% endblock %}

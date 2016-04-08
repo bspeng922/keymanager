@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{% trans "Keys" %}{% endblock %}
+
+{% block content_title %}{% trans "Key List" %}{% endblock %}
+{% block content_description %}{% endblock %}
+{% block content %}
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">{% trans "Key List" %}</h3>
+
+                        <div class="box-tools pull-right">
+                            <a href="{% url 'keys:generate_keys' %}" class="btn btn-block btn-primary">
+                                <i class="fa fa-plus"></i>{% trans "Generate Keys" %}
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                            <div class="row">
+                                <div class="col-sm-6"></div>
+                                <div class="col-sm-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid"
+                                           aria-describedby="example2_info">
+                                        <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1" aria-sort="ascending">{% trans "Key" %}</th>
+                                            {% if user.is_superuser %}
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                    colspan="1">{% trans "Username" %}</th>
+                                            {% endif %}
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1">{% trans "Version" %}</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1">{% trans "Server Limit" %}</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1">{% trans "CPU Limit" %}</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1">{% trans "Company" %}</th>
+{#                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"#}
+{#                                                colspan="1">{% trans "Used" %}</th>#}
+{#                                            {% if user.is_superuser %}#}
+{#                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"#}
+{#                                                    colspan="1">{% trans "Deleted" %}</th>#}
+{#                                            {% endif %}#}
+{#                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"#}
+{#                                                colspan="1">{% trans "Generation Time" %}</th>#}
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1">{% trans "Actions" %}</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for key in keys %}
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1">{{ key.key }}</td>
+                                                {% if user.is_superuser %}
+                                                    <td>{{ key.user.username }}</td>
+                                                {% endif %}
+                                                <td>{{ key.version }}</td>
+                                                <td>{{ key.srv_limit }}</td>
+                                                <td>{{ key.cpu_limit }}</td>
+                                                <td>{{ key.company }}</td>
+{#                                                <td>{{ key.used }}</td>#}
+{#                                                {% if user.is_superuser %}#}
+{#                                                    <td>{{ key.deleted }}</td>#}
+{#                                                {% endif %}#}
+{#                                                <td>{{ key.generation_time|date:"Y-m-d H:i:s" }}</td>#}
+                                                <td>
+                                                    <div class="btn-group">
+                                                        {% if key.used %}
+                                                            <a href="{% url 'keys:reuse' key.id %}"
+                                                               class="btn btn-default" role="button">{% trans "Reuse" %}</a>
+                                                        {% else %}
+                                                            <a href="{% url 'keys:download' key.id %}"
+                                                               class="btn btn-default" role="button">{% trans "Download" %}</a>
+                                                        {% endif %}
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                            <span class="caret"></span>
+                                                            <span class="sr-only">Toggle Dropdown</span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li>
+                                                                <a href="{% url 'keys:delete' key.id %}"
+                                                                   class="btn btn-danger" role="button">{% trans "Delete" %}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                        <tfoot>
+
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">
+                                        {% trans "Count: " %}{{ keys|length }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    {% if keys.object_list and keys.paginator.num_pages > 1 %}
+                                        <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                                            <ul class="pagination">
+                                                {% if keys.has_previous %}
+                                                <li class="paginate_button previous" id="example2_previous"><a
+                                                        href="?page={{ keys.previous_page_number }}"
+                                                        aria-controls="example2" data-dt-idx="0"
+                                                        tabindex="0">Previous</a>
+                                                </li>
+                                                {% endif %}
+                                                <li class="paginate_button active"><a href="#" aria-controls="example2"
+                                                                                      data-dt-idx="1"
+                                                                                      tabindex="0">{{ keys.number }}
+                                                    / {{ keys.paginator.num_pages }}</a>
+                                                </li>
+                                                {% if keys.has_next %}
+                                                <li class="paginate_button next" id="example2_next"><a
+                                                        href="?page={{ keys.next_page_number }}"
+                                                        aria-controls="example2"
+                                                        data-dt-idx="7"
+                                                        tabindex="0">Next</a>
+                                                </li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+{% endblock %}

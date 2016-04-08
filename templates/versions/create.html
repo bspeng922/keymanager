@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{% trans "Create Version" %}{% endblock %}
+
+{% block content %}
+    <div class="version-form">
+            <div class="modal-header">
+                <h3>{% trans "Create Version" %}</h3>
+            </div>
+            <form action="{% url 'versions:create' %}" method="post">
+                {% csrf_token %}
+                <div class="modal-body">
+                    {% if message %}
+                        <div class="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                    {{ version_form.as_p }}</div>
+                <div class="modal-footer">
+                    <input type="submit" value="{% trans 'Create' %}"></div>
+            </form>
+        </div>
+
+{% endblock %}
